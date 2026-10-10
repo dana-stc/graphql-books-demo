@@ -1,0 +1,9 @@
+mutation {
+  addBook(input: { title: "Messiah", year: 1969, authorId: "a1" }) {
+    id
+    title
+    author {
+      name
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  bookById(id: 1) {
+    title
+    year
+    author {
+      name
+    }
+  }
+}

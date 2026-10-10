@@ -1,0 +1,36 @@
+# The CONTRACT: describes what clients can ask for.
+# Spring loads every *.graphqls file in src/main/resources/graphql automatically.
+
+type Query {
+    "All books"
+    books: [Book!]!
+    "One book by id, or null if it does not exist"
+    bookById(id: ID!): Book
+    "All authors"
+    authors: [Author!]!
+}
+
+type Mutation {
+    "Add a new book"
+    addBook(input: AddBookInput!): Book!
+}
+
+type Book {
+    id: ID!
+    title: String!
+    year: Int!
+    author: Author!
+}
+
+type Author {
+    id: ID!
+    name: String!
+    books: [Book!]!
+}
+
+# Inputs are the "arguments objects" a mutation accepts
+input AddBookInput {
+    title: String!
+    year: Int!
+    authorId: ID!
+}
